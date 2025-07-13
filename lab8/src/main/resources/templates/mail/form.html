@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gửi Mail</title>
+</head>
+<body>
+    <h3>Gửi Mail</h3>
+    <p th:text="${message}"></p>
+
+    <form method="post" enctype="multipart/form-data" th:object="${mail}">
+        <label>From:</label>
+        <input th:field="*{from}"><br>
+
+        <label>To:</label>
+        <input th:field="*{to}"><br>
+
+        <label>Cc:</label>
+        <input th:field="*{cc}"><br>
+
+        <label>Bcc:</label>
+        <input th:field="*{bcc}"><br>
+
+        <label>Subject:</label>
+        <input th:field="*{subject}"><br>
+
+        <label>Body:</label><br>
+        <textarea th:field="*{body}" rows="6" cols="50"></textarea><br>
+
+        <label>Attachments:</label>
+        <input type="file" name="files" multiple><br><br>
+
+        <button formaction="/mail/send-direct">Gửi trực tiếp</button>
+        <button formaction="/mail/send-queue">Gửi hàng đợi</button>
+    </form>
+</body>
+</html>
