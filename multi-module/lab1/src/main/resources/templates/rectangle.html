@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chu vi, diện tích</title>
+</head>
+<body>
+    <h2>Tính diện tích & chu vi hình chữ nhật</h2>
+    <form action="/rectangle/calc" method="post">
+        <label>Chiều rộng:</label>
+        <input type="number" name="width" step="any" th:value="${width}"><br><br>
+        <label>Chiều dài:</label>
+        <input type="number" name="height" step="any" th:value="${height}"><br><br>
+        <button type="submit">Tính</button>
+    </form>
+
+    <div th:if="${area != null}">
+        <p>Diện tích: <span th:text="${area}"></span></p>
+        <p>Chu vi: <span th:text="${perimeter}"></span></p>
+    </div>
+
+    <div th:if="${error != null}">
+        <p th:text="${error}" style="color:red;"></p>
+    </div>
+</body>
+</html>

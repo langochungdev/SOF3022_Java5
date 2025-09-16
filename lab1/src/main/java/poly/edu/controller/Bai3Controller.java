@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-public class RectangleController {
+public class Bai3Controller {
 
     @RequestMapping("/rectangle/form")
     public String form() {

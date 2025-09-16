@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Page</title>
+</head>
+<body>
+
+<!-- Form Bài 2 -->
+<h2>Bài 2: Đọc tham số từ đường dẫn và form</h2>
+<form action="/param/save/2021" method="post">
+    <input name="y" value="2031">
+    <button>Save</button>
+</form>
+<ul th:if="${x != null}">
+    <li th:text="${x}">x</li>
+    <li th:text="${y}">y</li>
+</ul>
+
+<!-- Form Bài 3 + 4 -->
+<h2>Bài 3 + 4: Đọc đối tượng Product</h2>
+<form action="/product/save" method="post">
+    <input name="name" placeholder="Product Name" th:value="${product.name}">
+    <input name="price" placeholder="Product Price" th:value="${product.price}">
+    <button>Save</button>
+</form>
+
+<ul th:if="${product != null}">
+    <li th:text="${product.name}">product.name</li>
+    <li th:text="${product.price}">product.price</li>
+</ul>
+
+<!-- Danh sách sản phẩm (items) -->
+<h2>Danh sách sản phẩm</h2>
+<ul th:each="item : ${items}">
+    <li th:text="${item.name}">item.name</li>
+    <li th:text="${item.price}">item.price</li>
+</ul>
+
+</body>
+</html>
